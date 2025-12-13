@@ -93,6 +93,8 @@ window.clickeyElems=[];
 window.addEventListener('keydown',(e)=>{
     if(e.key==="Escape"){clearBadges();window.clickeyBuffer="";window.clickeyElems=[];return;}
     if(['0','1','2','3','4','5','6','7','8','9'].includes(e.key)){
+        if(window.clickeyElems.length===0)return;
+        e.preventDefault();
         window.clickeyBuffer+=e.key;
         if(window.clickeyBuffer.length>=`${window.clickeyElems.length-1}`.length){
             if(parseInt(window.clickeyBuffer)>=window.clickeyElems.length){
